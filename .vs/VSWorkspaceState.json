@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\node_modules\\@schematics",
+    "\\node_modules\\@schematics\\angular",
+    "\\node_modules\\@schematics\\angular\\application",
+    "\\node_modules\\@schematics\\angular\\application\\other-files",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\login",
+    "\\src\\app\\nominate",
+    "\\src\\app\\welcome"
+  ],
+  "SelectedNode": "\\src\\app\\app.component.html",
+  "PreviewInSolutionExplorer": false
+}
