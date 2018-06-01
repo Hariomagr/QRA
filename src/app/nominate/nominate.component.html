@@ -1,0 +1,119 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name"><a href="welcome" style="color:white;text-decoration:none">QRA</a></h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <p> <button mat-button [matMenuTriggerFor]="menu1">Nominate/Review</button></p>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item routerLink="/nominate">Nominate</button>
+        <button mat-menu-item routerLink="/review">Review</button>
+      </mat-menu>
+      <p> <button mat-button [matMenuTriggerFor]="menu2">Reports</button></p>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item routerLink="/approved">Approved</button>
+        <button mat-menu-item routerLink="/withdrawn">Withdrawn</button>
+      </mat-menu>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <mat-form-field style="left:80%">
+            <mat-select placeholder="Select Employee" name="employee">
+              <mat-option *ngFor="let employee of employee" [value]="employee.value" (click)="onclick()">
+                {{employee.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <form class="example-form" *ngIf="check">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:50%">
+                    <input matInput placeholder="Employee Number *" name="emp_no" required disabled>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:180%">
+                    <input matInput placeholder="Name *" name="name" required disabled>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:50%">
+                    <input matInput placeholder="Band *" name="band" required disabled>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:180%">
+                    <input matInput placeholder="Designation *" name="designation" required disabled>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:50%">
+                    <input matInput placeholder="Email *" name="email" required disabled>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:180%">
+                    <input matInput placeholder="Reporting Manager *" name="reporting_ma" required disabled>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:50%">
+                    <input matInput placeholder="Program Name *" name="program_name" required disabled>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" style="left:180%">
+                    <input matInput placeholder="Delivery Centre *" name="delivery_centre" required disabled>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Scope of Review or Approval *</h4>
+                </td>
+              </tr>
+
+            </table>
+
+            <mat-checkbox></mat-checkbox>&nbsp;1. Is the Nominated QR in the Approved PL List *<br><br>
+            <mat-checkbox></mat-checkbox>&nbsp;2. Has the PL executed min 1 projects *<br><br>
+            <mat-checkbox></mat-checkbox>&nbsp;3. Has the nominee completed atleast 1 year in QuEST *<br><br>
+
+            <mat-form-field class="example-full-width1">
+              <textarea matInput placeholder="Executed project no. and years of experience in QuEST " required></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width1">
+              <textarea matInput placeholder="Reason for Nomination " required></textarea>
+            </mat-form-field>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" style="left:80%" (click)="savee()">Save</button>
+              <button mat-raised-button color="primary" style="left:90%" (click)="submitt()">Submit</button>
+            </mat-card-actions>
+
+
+          </form>
+          <mat-card style="width:40%" *ngIf="save">Saved Successfully!!</mat-card>
+          <mat-card style="width:40%" *ngIf="submit">Submitted Successfully!!</mat-card>
+        </mat-card-content>
+        
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+ 
+</div>
+
